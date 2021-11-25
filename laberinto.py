@@ -19,3 +19,12 @@ except:
     raise Exception("Had a problem setting up wall. Check the coordinates of @wall_coordinates")
 
 print(lab)
+
+# Code from stackoverflow:
+#* print('\n'.join([''.join(['{:4}'.format(item) for item in row]) for row in A]))
+
+for row in lab:
+    print("[", end="")
+    for item in row:
+        print("\"" + item + "\", ", end="")
+    print("]")
