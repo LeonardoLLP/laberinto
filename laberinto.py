@@ -25,6 +25,9 @@ print(lab)
 
 for row in lab:
     print("[", end="")
-    for item in row:
-        print("\"" + item + "\", ", end="")
+    for index in range(len(row)):
+        if index != len(row) - 1:
+            print("\'" + row[index] + "\', ", end="")
+        else:
+            print("\'" + row[index] + "\'", end="")
     print("]")
