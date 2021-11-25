@@ -1,2 +1,4 @@
-# laberinto
-Proyecto del laberinto
+# Laberinto
+
+Dirección del respositorio: [laberinto.git](https://github.com/LeonardoLLP/laberinto)
+
