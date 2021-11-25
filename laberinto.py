@@ -1,4 +1,4 @@
-wall = ((0,1), (0,2), (0,3), (0,4), (1,1), (2,1), (2,3), (3,3), (4,0), (4,1), (4,2), (4,3))
+wall_coordinates = ((0,1), (0,2), (0,3), (0,4), (1,1), (2,1), (2,3), (3,3), (4,0), (4,1), (4,2), (4,3))
 
 lab_dimensions = (5, 5)
 
@@ -13,6 +13,9 @@ print(lab)
 
 # Using try-catch just to make sure no out-of-range index or invalid coordinates (like floats)
 try:
-    pass
+    for coordinate in wall_coordinates:
+        lab[coordinate[0]][coordinate[1]] = "X"
 except:
-    raise Exception("Had a problem setting up wall. Check the coordinates of @wall")
+    raise Exception("Had a problem setting up wall. Check the coordinates of @wall_coordinates")
+
+print(lab)
