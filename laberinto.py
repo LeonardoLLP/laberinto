@@ -4,9 +4,10 @@ lab_dimensions = (5, 5)
 
 lab = []
 
-for i in range(lab_dimensions[0]):
-    row = lab.append([])
-    for j in range(lab_dimensions[1]):
-        row.append("")
+for row in range(lab_dimensions[0]):
+    lab.append([])
+    for column in range(lab_dimensions[1]):
+        lab[row].append("")
 
 print(lab)
+
