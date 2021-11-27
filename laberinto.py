@@ -28,3 +28,15 @@ for row in lab:
         else:
             print("{:6}".format("\'" + row[index] + "\'"), end="")
     print("]")
+
+
+
+#! Solution to laberinth:
+#! Usamos el método "mantenerse siempre a la derecha"
+
+position = [0, 0]
+directions = ("Up", "Right", "Down", "Left")
+solution = []
+
+direction = 0
+
