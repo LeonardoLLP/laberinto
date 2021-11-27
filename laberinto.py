@@ -52,6 +52,7 @@ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
     if lab[place_to_go[0]][place_to_go[1]] != "X":
         position = place_to_go
         solution.append(directions[rotation_index])
+
     else:
         rotation_index += 1
         if rotation_index >= len(directions):
