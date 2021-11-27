@@ -1,5 +1,6 @@
 wall_coordinates = ((0,1), (0,2), (0,3), (0,4), (1,1), (2,1), (2,3), (3,3), (4,0), (4,1), (4,2), (4,3))
 
+
 lab_dimensions = (5, 5)
 
 lab = []
@@ -16,6 +17,12 @@ try:
         lab[coordinate[0]][coordinate[1]] = "X"
 except:
     raise Exception("Had a problem setting up wall. Check the coordinates of @wall_coordinates")
+
+# Creation of start/end
+#* Como S es en función de las dimensiones del laberinto, [-1] siempre se ajustará a las dimensiones del laberinto
+lab[0][0] = "E"
+lab[-1][-1] = "S"
+
 
 # Code from stackoverflow:
 #* print('\n'.join([''.join(['{:4}'.format(item) for item in row]) for row in A]))
@@ -35,8 +42,13 @@ for row in lab:
 #! Usamos el método "mantenerse siempre a la derecha"
 
 position = [0, 0]
-directions = ("Up", "Right", "Down", "Left")
+directions = ((0, 1), (1, 0), (0, -1), (-1, 0))
 solution = []
 
-direction = 0
+rotation_index = 0
 
+while lab[position[0]][position[1]] != "S":
+    place_to_go = [position[coor] + directions[rotation_index][coor] for coor in range(2)]
+    if lab[place_to_go[0]][place_to_go[1]] != "X":
+        position = place_to_go
+    solution.append(directions[rotation_index])
