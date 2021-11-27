@@ -47,8 +47,14 @@ solution = []
 
 rotation_index = 0
 
-while lab[position[0]][position[1]] != "S":
-    place_to_go = [position[coor] + directions[rotation_index][coor] for coor in range(2)]
+while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
+    place_to_go = [position[coor] + directions[rotation_index][coor] for coor in range(2)]  # Posición a la que voy
     if lab[place_to_go[0]][place_to_go[1]] != "X":
         position = place_to_go
-    solution.append(directions[rotation_index])
+        solution.append(directions[rotation_index])
+    else:
+        rotation_index += 1
+        if rotation_index >= len(directions):
+            rotation_index -= len(directions)
+
+print(solution)
