@@ -50,15 +50,19 @@ try_right = True
 rotation_index = 0
 
 while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
+    print(position)
+    print(directions[rotation_index])
     place_to_go = [position[coor] + directions[rotation_index][coor] for coor in range(2)]  # Posición a la que voy
 
     if lab[place_to_go[0]][place_to_go[1]] != "X":  # If there is no wall:
         position = place_to_go
         solution.append(directions[rotation_index])
+        try_right = True
 
     else:
         if try_right == True:
             rotation_index += 1  # Rotating right
+            try_right = False
         else:
             rotation_index -= 1  # Rotating left
 
