@@ -73,7 +73,7 @@ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
         place_to_go = "X"
 
     if place_to_go != "X" and tuple(coor_to_go) in valid_coordinates :  # If there is no wall:
-        position = place_to_go
+        position = coor_to_go
         solution.append(directions[rotation_index])
         try_right = True
 
