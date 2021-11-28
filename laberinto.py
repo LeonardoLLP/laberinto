@@ -1,3 +1,5 @@
+#! Generación del laberinto
+
 wall_coordinates = ((0,1), (0,2), (0,3), (0,4), (1,1), (2,1), (2,3), (3,3), (4,0), (4,1), (4,2), (4,3))
 
 
@@ -36,13 +38,13 @@ for row in lab:
             print("{:6}".format("\'" + row[index] + "\'"), end="")
     print("]")
 
-
+print(lab)
 
 #! Solution to laberinth:
 #! Usamos el método "mantenerse siempre a la derecha"
 
 position = [0, 0]
-directions = ((0, 1), (1, 0), (0, -1), (-1, 0))
+directions = ((0, 1), (-1, 0), (0, -1), (1, 0))
 solution = []
 print(len(directions))
 
@@ -65,7 +67,7 @@ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
 
     place_to_go = lab[coor_to_go[0]][coor_to_go[1]]
 
-    if place_to_go != "X" and coor_to_go in valid_coordinates :  # If there is no wall:
+    if place_to_go != "X" and tuple(coor_to_go) in valid_coordinates :  # If there is no wall:
         position = place_to_go
         solution.append(directions[rotation_index])
         try_right = True
