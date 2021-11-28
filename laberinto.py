@@ -60,12 +60,17 @@ print(valid_coordinates)
 ###!!! Super inefective. Better to make an "is_valid" variable that checks if not (False in [0 <= coor_to_go[i] < len(lab_dimensions) for i in range(2)]).
 ###!!! For now, leave it like this. Don't know where to implement this code
 
+
+
 while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
     print(position)
     print(directions[rotation_index])
     coor_to_go = [position[coor] + directions[rotation_index][coor] for coor in range(2)]  # Posición a la que voy
 
-    place_to_go = lab[coor_to_go[0]][coor_to_go[1]]
+    try:
+        place_to_go = lab[coor_to_go[0]][coor_to_go[1]]
+    except:
+        place_to_go = "X"
 
     if place_to_go != "X" and tuple(coor_to_go) in valid_coordinates :  # If there is no wall:
         position = place_to_go
@@ -95,3 +100,7 @@ print(solution)
 
 # Solución: gira hacia la derecha, y luego prueba hacia la izquierda hasta que halles un camino
 # Para este laberinto, no debería de afectar
+
+
+# Este código no funciona para laberintos complejos: laberintos dentro de laberintos
+# Sin embargo, como las entrada y salida siempre está en esquinas del laberinto "inicial", no hay problema. No hace falta implementar este código
