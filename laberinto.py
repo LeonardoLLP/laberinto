@@ -92,6 +92,20 @@ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
 
 print(solution)
 
+directions_to_follow = []
+
+for instruction in solution:
+    if instruction == (0, 1):
+        directions_to_follow.append("Right")
+    elif instruction == (1, 0):
+        directions_to_follow.append("Down")
+    elif instruction == (0, -1):
+        directions_to_follow.append("Left")
+    elif instruction == (-1, 0):
+        directions_to_follow.append("Up")
+
+print(directions_to_follow)
+
 
 
 # Resumiendo mucho: este código no funciona para otro laberinto.
