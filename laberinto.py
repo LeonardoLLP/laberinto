@@ -44,10 +44,10 @@ print(lab)
 #! Usamos el método "mantenerse siempre a la derecha"
 
 position = [0, 0]
-directions = ((0, 1), (-1, 0), (0, -1), (1, 0))
+directions = ((0, 1), (1, 0), (0, -1), (-1, 0))
 solution = []
-print(len(directions))
 
+#* Variables de control-flow
 try_right = True
 rotation_index = 0
 
@@ -79,6 +79,7 @@ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
         else:
             rotation_index -= 1  # Rotating left
 
+        # Mantenerse en rotaciones permitidas
         if rotation_index >= len(directions):
             rotation_index -= len(directions)
         elif rotation_index < 0:
@@ -86,3 +87,11 @@ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
 
 print(solution)
 
+
+
+# Resumiendo mucho: este código no funciona para otro laberinto.
+# Si el jugador puede girar a la derecha, TIENE que girar a la derecha para mantenerse en la prueba de todos los caminos.
+# En el código, si pueede seguir al frente, seguirá al frente. Hay que cambiar eso
+
+# Solución: gira hacia la derecha, y luego prueba hacia la izquierda hasta que halles un camino
+# Para este laberinto, no debería de afectar
