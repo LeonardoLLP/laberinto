@@ -44,18 +44,28 @@ for row in lab:
 position = [0, 0]
 directions = ((0, 1), (1, 0), (0, -1), (-1, 0))
 solution = []
+print(len(directions))
 
+try_right = True
 rotation_index = 0
 
 while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
     place_to_go = [position[coor] + directions[rotation_index][coor] for coor in range(2)]  # Posición a la que voy
-    if lab[place_to_go[0]][place_to_go[1]] != "X":
+
+    if lab[place_to_go[0]][place_to_go[1]] != "X":  # If there is no wall:
         position = place_to_go
         solution.append(directions[rotation_index])
 
     else:
-        rotation_index += 1
+        if try_right == True:
+            rotation_index += 1  # Rotating right
+        else:
+            rotation_index -= 1  # Rotating left
+
         if rotation_index >= len(directions):
             rotation_index -= len(directions)
+        elif rotation_index < 0:
+            rotation_index += len(directions)
 
 print(solution)
+
