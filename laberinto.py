@@ -61,7 +61,7 @@ print(valid_coordinates)
 ###!!! For now, leave it like this. Don't know where to implement this code
 
 
-
+#! Método 1
 """ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
     print(position)
     print(directions[rotation_index])
@@ -90,8 +90,12 @@ print(valid_coordinates)
         elif rotation_index < 0:
             rotation_index += len(directions) """
 
+        # Resumiendo mucho: este código no funciona para otro laberinto.
+        # Si el jugador puede girar a la derecha, TIENE que girar a la derecha para mantenerse en la prueba de todos los caminos.
+        # En el código, si puede seguir al frente, seguirá al frente. Hay que cambiar eso
+        # El código se rompe en cruces de cuatro caminos
 
-#! Método dos (mejor): mantenerse siempre a la derecha
+#! Método 2 (mejor): mantenerse siempre a la derecha
 while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
     #* ROTAMOS ANTES DE SEGUIR HACIA DELANTE
     if try_right == True:
@@ -106,7 +110,7 @@ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
     elif rotation_index < 0:
         rotation_index += len(directions)
 
-    # Coordenadas adonde vámos
+    # Coordenadas adónde vamos
     coor_to_go = [position[coor] + directions[rotation_index][coor] for coor in range(2)]  # Posición a la que voy
 
     try:
@@ -138,13 +142,9 @@ print(directions_to_follow)
 
 
 
-# Resumiendo mucho: este código no funciona para otro laberinto.
-# Si el jugador puede girar a la derecha, TIENE que girar a la derecha para mantenerse en la prueba de todos los caminos.
-# En el código, si pueede seguir al frente, seguirá al frente. Hay que cambiar eso
 
 # Solución: gira hacia la derecha, y luego prueba hacia la izquierda hasta que halles un camino
 # Para este laberinto, no debería de afectar
-
 
 # Este código no funciona para laberintos complejos: laberintos dentro de laberintos
 # Sin embargo, como las entrada y salida siempre está en esquinas del laberinto "inicial", no hay problema. No hace falta implementar este código
