@@ -62,7 +62,7 @@ print(valid_coordinates)
 
 
 
-while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
+""" while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
     print(position)
     print(directions[rotation_index])
     coor_to_go = [position[coor] + directions[rotation_index][coor] for coor in range(2)]  # Posición a la que voy
@@ -88,7 +88,37 @@ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
         if rotation_index >= len(directions):
             rotation_index -= len(directions)
         elif rotation_index < 0:
-            rotation_index += len(directions)
+            rotation_index += len(directions) """
+
+
+#! Método dos (mejor): mantenerse siempre a la derecha
+while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
+    #* ROTAMOS ANTES DE SEGUIR HACIA DELANTE
+    if try_right == True:
+        rotation_index += 1  # Rotating right
+        try_right = False
+    else:
+        rotation_index -= 1  # Rotating left
+
+    #* Mantenerse en rotaciones permitidas
+    if rotation_index >= len(directions):
+        rotation_index -= len(directions)
+    elif rotation_index < 0:
+        rotation_index += len(directions)
+
+    # Coordenadas adonde vámos
+    coor_to_go = [position[coor] + directions[rotation_index][coor] for coor in range(2)]  # Posición a la que voy
+
+    try:
+        place_to_go = lab[coor_to_go[0]][coor_to_go[1]]
+    except:
+        place_to_go = "X"
+
+    if place_to_go != "X" and tuple(coor_to_go) in valid_coordinates :  # If there is no wall:
+        position = coor_to_go
+        solution.append(directions[rotation_index])
+        try_right = True
+
 
 print(solution)
 
