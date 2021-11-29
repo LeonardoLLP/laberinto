@@ -113,12 +113,14 @@ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
     # Coordenadas adónde vamos
     coor_to_go = [position[coor] + directions[rotation_index][coor] for coor in range(2)]  # Posición a la que voy
 
+    is_valid = not (False in [0 <= coor_to_go[i] < len(lab_dimensions) for i in range(2)])
+
     try:
         place_to_go = lab[coor_to_go[0]][coor_to_go[1]]
     except:
         place_to_go = "X"
 
-    if place_to_go != "X" and tuple(coor_to_go) in valid_coordinates :  # If there is no wall:
+    if place_to_go != "X" and is_valid :  # If there is no wall:
         position = coor_to_go
         solution.append(directions[rotation_index])
         try_right = True
