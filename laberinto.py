@@ -51,15 +51,6 @@ solution = []
 try_right = True
 rotation_index = 0
 
-valid_coordinates = []
-for i in range(lab_dimensions[0]):
-    for j in range(lab_dimensions[1]):
-        valid_coordinates.append((i, j))
-print(valid_coordinates)
-
-###!!! Super inefective. Better to make an "is_valid" variable that checks if not (False in [0 <= coor_to_go[i] < len(lab_dimensions) for i in range(2)]).
-###!!! For now, leave it like this. Don't know where to implement this code
-
 
 #! Método 1
 """ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
