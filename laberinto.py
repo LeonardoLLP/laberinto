@@ -115,7 +115,7 @@ while lab[position[0]][position[1]] != "S":  # Mientras no esté en el final:
         try_right = True
 
 
-print(solution)
+# print(solution)
 
 directions_to_follow = []
 
@@ -129,7 +129,18 @@ for instruction in solution:
     elif instruction == (-1, 0):
         directions_to_follow.append("Up")
 
-print(directions_to_follow)
+# print(directions_to_follow)
+
+directions_str = ""
+for direction in directions_to_follow:
+    directions_str += str(direction).casefold() + ", "
+
+#* Remove last comma with slices and add final dot
+directions_str = directions_str[:-2] + "."
+
+
+print("The directions needed to reach the end are: " + directions_str)
+
 
 
 
