@@ -38,8 +38,6 @@ for row in lab:
             print("{:6}".format("\'" + row[index] + "\'"), end="")
     print("]")
 
-print(lab)
-
 #! Solution to laberinth:
 #! Usamos el método "mantenerse siempre a la derecha"
 
