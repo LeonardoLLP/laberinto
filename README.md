@@ -7,8 +7,9 @@ Por otro lado, programamos un "personaje", un referente que va a ir moviéndose 
 Una vez hecho esto, solo queda convertir los distintos movimientos del "personaje" y traducirlos a lenguaje comprensible.
 
 Por otro lado, el diagrama de flujo es el siguiente:
+
 <br>
-<img height="1000" src="https://github.com/LeonardoLLP/laberinto/blob/main/laberinth_true.drawio.png" />
+<img height="800" src="https://github.com/LeonardoLLP/laberinto/blob/main/laberinth_true.drawio.png" />
 <br>
 
 Antes de mostrar el código, queda relatar un defecto que no me ha dado tiempo a resolver. Aunque el código actual consigue llegar al final, no muestra el camino más corto siempre. He reflexionado un poco acerca de ello y he llegado a dos soluciones. La primera, solución propia, consiste en realizar otra lista junto a las direcciones de las casilas de las coordenadas por las que va pasando el personaje. Cuando el jugador pase otra vez por la misma casilla, significará que el recorrido que ha hecho hasta entonces ha sido en vano, por lo que se podrá borrar todas las instrucciones hechas hasta esa casilla.
